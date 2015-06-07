@@ -1,0 +1,9 @@
+/* Empty. Add your own CSS if you like */
+.eventListPicture{
+	width:100%;
+	height:180px;
+	display:inline-block;
+	background-size: cover;
+	color:#fff;
+	text-decoration: none;
+}
