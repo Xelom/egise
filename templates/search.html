@@ -3,3 +3,18 @@
     <h1>Search</h1>
   </ion-content>
 </ion-view>
+<ion-list>
+<ion-item class="item" ng-repeat="event in events" href="#/app/events/{{event.$id}}">
+    <div class="row row-center">
+      <div class="col col-50">
+        <span style="font-weight:bold;color:#000000;">{{event.eventName}}</span>
+      </div>
+    <div class="col col-offset-10">
+    <span style="font-size:12px;color:#000000;">Cmt P Pzt S Ç Per C</span>
+  </div>
+  </div>
+    <div class="row">
+    <img height="100" width="100%" max-width="100%" ng-src="{{event.eventImageUrl}}">
+  </div>
+</ion-item>
+</ion-list>

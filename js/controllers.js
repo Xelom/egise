@@ -1,14 +1,14 @@
-angular.module('starter.controllers', [])
+angular.module('egise.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-  
+
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-  
+
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -53,4 +53,27 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})
+
+.controller('EventsController', ["$scope", "events", function($scope, events) {
+  $scope.events = events.getEvents();
+  //console.log($scope.events);
+}])
+
+.controller('EventController', ["$scope","$stateParams", "events", "$ionicSlideBoxDelegate", function($scope, $stateParams, events, $ionicSlideBoxDelegate) {
+  $scope.event = events.getEventDetail($stateParams.eventId);
+  $scope.eventDates = events.getEventDates($stateParams.eventId);
+  $scope.images = []
+  $scope.event.$loaded(function() {
+    for(var a = 0; a< $scope.event.eventImages.length; a++) {
+      $scope.images.push($scope.event.eventImages[a]);
+    }
+    $scope.images.shift();
+    $ionicSlideBoxDelegate.update();
+  });
+  $scope.slideChanged = function(index) {
+      $scope.slideIndex = index;
+    };
+
+  //console.log($scope.event);
+}]);
