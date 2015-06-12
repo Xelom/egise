@@ -17,7 +17,7 @@
   <div style="height:20%" class="row responsive-sm">
     <ion-scroll>
   <div class="list">
-    <a ng-repeat="eventDate in eventDates" class="item item-icon-left item-icon-right" href="#">
+    <a ng-repeat="eventDate in eventDates" class="item item-icon-left item-icon-right" href="#/app/events/eventhall/{{$parent.event.$id}}/{{$parent.event.eventHallId}}/{{eventDate.$id}}">
       <i ng-if="eventDate.isEvening==true" class="icon ion-ios-moon-outline"></i>
       <i ng-if="eventDate.isEvening==false" class="icon ion-ios-sunny-outline"></i>
       <span style="font-size:12px;">{{eventDate.$id | amDateFormat:'DD MMMM dddd'}} {{eventDate.eventTime}}</span>

@@ -59,7 +59,12 @@ angular.module('egise.controllers', [])
   $scope.events = events.getEvents();
   //console.log($scope.events);
 }])
-
+.controller('EventhallController', ["$scope", "$stateParams", "events", function($scope, $stateParams, events) {
+  $scope.eventhall = events.getEventhall($stateParams.eventhallId);
+  $scope.eventPriceList = events.getEventPriceList($stateParams.eventId, $stateParams.eventDate);
+  console.log($scope.eventhall);
+  console.log($scope.eventPriceList);
+}])
 .controller('EventController', ["$scope","$stateParams", "events", "$ionicSlideBoxDelegate", function($scope, $stateParams, events, $ionicSlideBoxDelegate) {
   $scope.event = events.getEventDetail($stateParams.eventId);
   $scope.eventDates = events.getEventDates($stateParams.eventId);

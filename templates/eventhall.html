@@ -1,0 +1,19 @@
+<ion-view view-title="Biletinizi Seçiniz">
+  <ion-content>
+    <div style="height:70%;" class="row responsive-sm">
+      <img ng-src="{{eventHall.eventHallImageUrl}}"
+    </div>
+    <div style="height:30%;" class="row responsive-sm">
+      <ion-scroll>
+        <div class="list">
+          <a ng-repeat="eventPrice in eventPrices" class="item item-icon-left item-icon-right" href="#">
+            <span style="font-size:12px;">{{eventPrice.categoryName}}</span>
+            <span class="item-note">
+              <span style="font-weight:bold;color:#000000;">{{eventPrice.discountedPrice}} TL</span><i class="icon ion-chevron-right icon-accessory"></i>
+            </span>
+          </a>
+        </div>
+      </ion-scroll>
+    </div>
+  </ion-content>
+</ion-view>

@@ -58,7 +58,15 @@ angular.module('starter', ['ionic', 'egise.controllers', 'firebase', 'egise.fact
       }
     }
   })
-
+  .state('app.eventhall', {
+    url: "/events/eventhall/:eventId/:eventhallId/:selectedDate",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/eventhall.html",
+        controller: "EventhallController"
+      }
+    }
+  })
     .state('app.playlists', {
       url: "/playlists",
       views: {
